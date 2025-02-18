@@ -26,7 +26,7 @@ public class Sort<T> : ISort<T> where T : IComparable<T>
         for (int ind = 1; ind < data.Length; ind++){
             T key = data[ind];
             prev = ind - 1;
-            while(prev >= 0 && data[prev] > key){
+            while(prev >= 0 && data[prev].CompareTo(key) > 0){
                 data[prev+1] = data[prev];
                 prev--;
             }
