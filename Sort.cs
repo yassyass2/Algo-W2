@@ -21,7 +21,16 @@ public class Sort<T> : ISort<T> where T : IComparable<T>
 
     public static void InsertionSort(T[] data)
     {
-        throw new NotImplementedException(); //ToDo
+        if (data == null || data.Length <= 1) return;
+        for (int ind = 1; ind < data.Length; ind++){
+            T key = data[ind];
+            prev = j - 1;
+            while(prev >= 0 && data[prev] > key){
+                data[prev+1] = data[prev];
+                prev--;
+            }
+            data[prev+1] = key;
+        }
     }
 
 
