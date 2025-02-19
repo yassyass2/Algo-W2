@@ -35,27 +35,27 @@ public class Sort<T> : ISort<T> where T : IComparable<T>
     }
 
 
-    public static void MergeSort(T[] data, int low, int high)
+    public static void MergeSort(T[] array, int low, int high)
     {
-        if (data == null || data.Length <= 1 || low >= high) return;
+        if (array == null || array.Length <= 1 || low >= high) return;
         int middle = (low+high)/2;
-        MergeSort(data, low, middle);
-        MergeSort(data, middle+1, high);
-        Merge(data, low, middle, high);
+        MergeSort(array, low, middle);
+        MergeSort(array, middle+1, high);
+        Merge(array, low, middle, high);
     }
 
-    public static void Merge(T[] data, int low, int middle, int high)
+    public static void Merge(T[] array, int low, int middle, int high)
     {
-        int finalsize = data.Length;
+        int finalsize = array.Length;
         int secondStart = middle+1;
 
         for (int i = 0; i <= finalsize; i++){
-            if (secondStart >= finalsize || data[low] <= data[secondStart]){
-                data[i] = data[low];
+            if (secondStart >= finalsize || array[low] <= array[secondStart]){
+                array[i] = array[low];
                 low++;
             }
-            else if (low > middle || data[secondStart] < data[low]){
-                data[i] = data[secondStart];
+            else if (low > middle || array[secondStart] < array[low]){
+                array[i] = array[secondStart];
                 secondStart++;
             }
         }
