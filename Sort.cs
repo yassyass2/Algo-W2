@@ -37,7 +37,7 @@ public class Sort<T> : ISort<T> where T : IComparable<T>
 
     public static void MergeSort(T[] array, int low, int high)
     {
-        if (array == null || array.Length <= 1) return;
+        if (array == null || array.Length <= 1 || low >= high) return;
         int middle = (low+high)/2;
         MergeSort(array, low, middle);
         MergeSort(array, middle+1, high);
