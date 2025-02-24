@@ -50,11 +50,15 @@ public class Sort<T> : ISort<T> where T : IComparable<T>
         int secondStart = middle+1;
 
         for (int i = 0; i < finalSize; i++){
-            if (secondStart >= finalSize || array[low] <= array[secondStart]){
+            if (low > middle) { 
+            array[i] = array[secondStart]; 
+            secondStart++; 
+            } 
+            else if (secondStart > high || array[low] <= array[secondStart]){
                 array[i] = array[low];
                 low++;
             }
-            else if (low > middle || array[secondStart] < array[low]){
+            else if (array[secondStart] < array[low]){
                 array[i] = array[secondStart];
                 secondStart++;
             }
