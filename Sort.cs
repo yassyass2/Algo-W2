@@ -68,9 +68,11 @@ public class Sort<T> : ISort<T> where T : IComparable<T>
         for (int k = 0; k < finalSize; k++){
             if (low > middle) { 
                 array[k] = array[secondBegin++]; 
+                continue;
             } 
             else if (secondBegin > high || array[secondBegin].CompareTo(array[low]) >= 0){
                 array[k] = array[low++];
+                continue;
             }
             else if (array[secondBegin].CompareTo(array[low]) < 0){
                 array[k] = array[secondBegin++];
