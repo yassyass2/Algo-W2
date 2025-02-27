@@ -64,10 +64,10 @@ public class Sort<T> : ISort<T> where T : IComparable<T>
         }
 
         for (int k = low; k <= high; k++){
-            if (low >= firstArr) { 
+            if (low > middle) { 
                 array[k] = rightArr[secondBegin++]; 
             } 
-            else if (secondBegin >= secondArr || rightArr[secondBegin].CompareTo(leftArr[low]) >= 0){
+            else if (secondBegin > high || rightArr[secondBegin].CompareTo(leftArr[low]) >= 0){
                 array[k] = leftArr[low++];
             }
             else if (rightArr[secondBegin].CompareTo(leftArr[low]) < 0){
