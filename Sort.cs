@@ -48,7 +48,7 @@ public class Sort<T> : ISort<T> where T : IComparable<T>
     {
         int secondBegin = 0;
         int firstArr = middle - low + 1;
-        int secondArr = high - middle + 1;
+        int secondArr = high - middle;
 
         T[] leftArr = new T[firstArr];
         T[] rightArr = new T[secondArr];
@@ -67,7 +67,7 @@ public class Sort<T> : ISort<T> where T : IComparable<T>
             if (low > middle) { 
                 array[k] = rightArr[secondBegin++]; 
             } 
-            else if (secondBegin >= rightArr.Length || rightArr[secondBegin].CompareTo(leftArr[low]) >= 0){
+            else if (secondBegin == secondArr || rightArr[secondBegin].CompareTo(leftArr[low]) >= 0){
                 array[k] = leftArr[low++];
             }
             else if (rightArr[secondBegin].CompareTo(leftArr[low]) < 0){
