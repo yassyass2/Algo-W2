@@ -64,7 +64,39 @@ public class Sort<T> : ISort<T> where T : IComparable<T>
         {
             rightArr[j] = array[middle + 1 + j];
         }
+        i = 0;
+        j = 0;
+        k = low;
 
+        while (i < firstArr && j < secondArr)
+        {
+            if (leftArr[i].CompareTo(rightArr[j]) <= 0)
+            {
+                array[k++] = leftArr[i++];
+            }
+            else
+            {
+                array[k++] = rightArr[j++];
+            }
+        }
+
+        if (i == firstArr)
+        {
+            for (int x = j; x < secondArr; x++)
+            {
+                array[k++] = rightArr[x];
+            }
+        }
+
+        if (j == secondArr)
+        {
+            for (int x = i; x < firstArr; x++)
+            {
+                array[k++] = leftArr[x];
+            }
+        }
+
+        /*
         for (int k = 0; k < finalSize; k++){
             if (low > middle) { 
                 array[k] = array[secondStart]; 
@@ -79,5 +111,6 @@ public class Sort<T> : ISort<T> where T : IComparable<T>
                 secondStart++;
             }
         }
+        */
     }
 }
