@@ -46,9 +46,7 @@ public class Sort<T> : ISort<T> where T : IComparable<T>
 
     public static void Merge(T[] array, int low, int middle, int high)
     {
-        int finalSize = high - low + 1;
         int secondBegin = 0;
-
         int firstArr = middle - low + 1;
         int secondArr = high - middle;
 
@@ -66,15 +64,15 @@ public class Sort<T> : ISort<T> where T : IComparable<T>
         }
 
         for (int k = low; k <= high; k++){
-            if (low > middle) { 
+            if (low >= firstArr) { 
                 array[k] = rightArr[secondBegin++]; 
                 continue;
             } 
-            else if (secondBegin > high || array[secondBegin].CompareTo(array[low]) >= 0){
+            else if (secondBegin >= secondArr || rightArr[secondBegin].CompareTo(leftArr[low]) >= 0){
                 array[k] = leftArr[low++];
                 continue;
             }
-            else if (array[secondBegin].CompareTo(array[low]) < 0){
+            else if (rightArr[secondBegin].CompareTo(leftArr[low]) < 0){
                 array[k] = rightArr[secondBegin++];
             }
         }
