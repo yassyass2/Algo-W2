@@ -95,22 +95,4 @@ public class Sort<T> : ISort<T> where T : IComparable<T>
                 array[k++] = leftArr[x];
             }
         }
-
-        /*
-        for (int k = 0; k < finalSize; k++){
-            if (low > middle) { 
-                array[k] = array[secondStart]; 
-                secondStart++; 
-            } 
-            else if (secondStart > high || array[secondStart].CompareTo(array[low]) >= 0){
-                array[k] = array[low];
-                low++;
-            }
-            else if (array[secondStart].CompareTo(array[low]) < 0){
-                array[k] = array[secondStart];
-                secondStart++;
-            }
-        }
-        */
-    }
 }
