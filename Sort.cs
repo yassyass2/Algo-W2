@@ -64,9 +64,9 @@ public class Sort<T> : ISort<T> where T : IComparable<T>
         {
             rightArr[j] = array[middle + 1 + j];
         }
-        i = 0;
-        j = 0;
-        k = low;
+        int i = 0;
+        int j = 0;
+        int k = low;
 
         while (i < firstArr && j < secondArr)
         {
